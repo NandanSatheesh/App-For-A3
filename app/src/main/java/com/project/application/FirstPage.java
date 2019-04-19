@@ -18,10 +18,10 @@ public class FirstPage extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+		setContentView(R.layout.login);
 
-		userName = (EditText) findViewById(R.id.userName);
-		password = (EditText) findViewById(R.id.password);
+		userName = (EditText) findViewById(R.id.userNameField);
+		password = (EditText) findViewById(R.id.passwordField);
 		loginAction = findViewById(R.id.loginAction);
 
 		loginAction.setOnClickListener(new View.OnClickListener() {
