@@ -41,6 +41,8 @@
 			android:theme="@android:style/Theme.Dialog" />
 		<activity android:name=".MainActivity" />
 
+		<activity android:name=".DeviceListRecyclerView" />
+
 
 	</application>
 

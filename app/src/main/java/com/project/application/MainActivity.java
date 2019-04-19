@@ -52,6 +52,22 @@ public class MainActivity extends Activity implements BluetoothSPPConnectionList
 		setContentView(R.layout.activity_main);
 
 
+		Button button = findViewById(R.id.savedDevices);
+
+		button.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				Intent intent = new Intent(getApplicationContext() , DeviceListRecyclerView.class);
+
+				startActivity(intent);
+
+
+
+			}
+		});
+
+
 		et_msg = (EditText) findViewById(R.id.et_text);
 		btn_speak = (Button) findViewById(R.id.btn_speak);
 		btn_connect = (Button) findViewById(R.id.btn_connect);

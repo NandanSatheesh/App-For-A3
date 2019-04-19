@@ -89,4 +89,12 @@
 		android:gravity="center"
 		android:textAppearance="?android:attr/textAppearanceLarge" />
 
+
+	<Button
+		android:id="@+id/savedDevices"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Saved Devices"
+		/>
+
 </LinearLayout>

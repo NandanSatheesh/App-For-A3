@@ -62,6 +62,9 @@ public class DeviceListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		if (D) Log.d(TAG, "onCreate()");
 
+
+
+
 		// Setup the window
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.device_list);
