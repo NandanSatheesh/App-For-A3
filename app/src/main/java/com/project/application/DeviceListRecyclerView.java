@@ -50,21 +50,12 @@ public class DeviceListRecyclerView extends AppCompatActivity {
 
 		Toolbar toolbar = findViewById(R.id.toolbar);
 
-
-//		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//		getSupportActionBar().setDisplayShowHomeEnabled(true);
-
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				finish();
 			}
 		});
-
-//		if(getSupportActionBar()!=null){
-//			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//			getSupportActionBar().setDisplayShowHomeEnabled(true);
-//		}
 
 
 		recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
