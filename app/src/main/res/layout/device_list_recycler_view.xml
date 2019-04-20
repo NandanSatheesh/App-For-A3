@@ -17,7 +17,7 @@
 		app:navigationContentDescription="@string/abc_action_bar_up_description"
 		android:background="?attr/colorPrimary"
 		app:navigationIcon="?attr/homeAsUpIndicator"
-		app:title="Add Existing Devices"
+		app:title="Add Paired Devices"
 		app:titleTextColor="#000000"
 		app:theme="@style/ThemeOverlay.AppCompat.Light"
 		/>

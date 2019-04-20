@@ -64,6 +64,7 @@ public class DeviceListRecyclerView extends AppCompatActivity {
 			@Override
 			public void onItemClick(BluetoothDevice device) {
 				Toast.makeText(DeviceListRecyclerView.this, "Click Done", Toast.LENGTH_SHORT).show();
+				ActiveBluetoothDevice.setDevice(device);
 			}
 		});
 		RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

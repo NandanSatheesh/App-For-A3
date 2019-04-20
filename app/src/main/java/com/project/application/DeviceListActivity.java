@@ -63,6 +63,16 @@ public class DeviceListActivity extends Activity {
 		if (D) Log.d(TAG, "onCreate()");
 
 
+		if(ActiveBluetoothDevice.device != null){
+			Intent intent = new Intent();
+			intent.putExtra(EXTRA_DEVICE_ADDRESS, ActiveBluetoothDevice.getBluetoothAddress());
+
+			// Set result and finish this Activity
+			setResult(Activity.RESULT_OK, intent);
+			finish();
+		}
+
+
 
 
 		// Setup the window

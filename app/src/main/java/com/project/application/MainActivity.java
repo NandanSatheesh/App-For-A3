@@ -62,8 +62,6 @@ public class MainActivity extends Activity implements BluetoothSPPConnectionList
 
 				startActivity(intent);
 
-
-
 			}
 		});
 
@@ -240,7 +238,9 @@ public class MainActivity extends Activity implements BluetoothSPPConnectionList
 				if (resultCode == Activity.RESULT_OK) {
 					String address = data.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
 					BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
-					mBluetoothSPPConnection.open(device);
+					// TODO : not sure. but the active device can be used here.
+					// mBluetoothSPPConnection.open(device);
+					mBluetoothSPPConnection.open(ActiveBluetoothDevice.getDevice());
 				}
 				break;
 			case REQUEST_ENABLE_BT:
