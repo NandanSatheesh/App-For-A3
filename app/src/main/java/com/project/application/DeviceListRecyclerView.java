@@ -60,6 +60,17 @@ public class DeviceListRecyclerView extends AppCompatActivity {
 
 		recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
+		if(deviceList.size() == 0){
+			findViewById(R.id.noContentView).setVisibility(View.VISIBLE);
+			findViewById(R.id.recycler_view).setVisibility(View.GONE);
+			findViewById(R.id.pairedDevicesLabel).setVisibility(View.GONE);
+		}
+		else{
+			findViewById(R.id.noContentView).setVisibility(View.GONE);
+			findViewById(R.id.recycler_view).setVisibility(View.VISIBLE);
+			findViewById(R.id.pairedDevicesLabel).setVisibility(View.VISIBLE);
+		}
+
 		adapter = new DeviceListAdapter(deviceList, new DeviceListAdapter.ClickListener() {
 			@Override
 			public void onItemClick(BluetoothDevice device) {

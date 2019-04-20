@@ -72,9 +72,6 @@ public class DeviceListActivity extends Activity {
 			finish();
 		}
 
-
-
-
 		// Setup the window
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.device_list);
