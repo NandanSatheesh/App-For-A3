@@ -11,7 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +20,12 @@ import java.util.Set;
 public class DeviceListRecyclerView extends AppCompatActivity {
 
 
-	private RecyclerView recyclerView ;
-	private DeviceListAdapter adapter ;
+	private RecyclerView recyclerView;
+	private DeviceListAdapter adapter;
 
 	private BluetoothAdapter mBtAdapter;
 
 	private List<BluetoothDevice> deviceList = new ArrayList<>();
-
 
 
 	@Override
@@ -39,7 +38,7 @@ public class DeviceListRecyclerView extends AppCompatActivity {
 
 		Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
 
-		for(BluetoothDevice device:pairedDevices){
+		for (BluetoothDevice device : pairedDevices) {
 			deviceList.add(device);
 		}
 
@@ -50,7 +49,6 @@ public class DeviceListRecyclerView extends AppCompatActivity {
 		setContentView(R.layout.device_list_recycler_view);
 
 		Toolbar toolbar = findViewById(R.id.toolbar);
-
 
 
 //		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -71,12 +69,16 @@ public class DeviceListRecyclerView extends AppCompatActivity {
 
 		recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-		adapter = new DeviceListAdapter(deviceList);
+		adapter = new DeviceListAdapter(deviceList, new DeviceListAdapter.ClickListener() {
+			@Override
+			public void onItemClick(BluetoothDevice device) {
+				Toast.makeText(DeviceListRecyclerView.this, "Click Done", Toast.LENGTH_SHORT).show();
+			}
+		});
 		RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
 		recyclerView.setLayoutManager(mLayoutManager);
 		recyclerView.setItemAnimator(new DefaultItemAnimator());
 		recyclerView.setAdapter(adapter);
-
 
 
 	}

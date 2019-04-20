@@ -7,19 +7,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
-import java.util.Set;
 
 public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.DeviceViewHolder> {
 
 
-	List<BluetoothDevice> deviceList ;
+	private List<BluetoothDevice> deviceList;
+	private final ClickListener listener;
+
+	public static String EXTRA_DEVICE_ADDRESS = "device_address";
 
 
-	public DeviceListAdapter(List<BluetoothDevice> deviceList) {
+	public DeviceListAdapter(List<BluetoothDevice> deviceList, ClickListener listener) {
 		this.deviceList = deviceList;
+		this.listener = listener;
 	}
 
 
@@ -36,8 +38,8 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.De
 	public void onBindViewHolder(@NonNull DeviceViewHolder deviceViewHolder, int i) {
 
 		BluetoothDevice device = deviceList.get(i);
-		deviceViewHolder.deviceName.setText(device.getName());
-		deviceViewHolder.deviceAddress.setText(device.getAddress());
+		deviceViewHolder.bind(device, listener);
+
 
 	}
 
@@ -46,26 +48,36 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.De
 		return deviceList.size();
 	}
 
-	public class DeviceViewHolder extends RecyclerView.ViewHolder{
+	public class DeviceViewHolder extends RecyclerView.ViewHolder {
 
 
-		public TextView deviceName , deviceAddress ;
+		public TextView deviceName, deviceAddress;
 
 
 		public DeviceViewHolder(@NonNull View itemView) {
 
 
 			super(itemView);
+			deviceAddress = itemView.findViewById(R.id.deviceAddress);
+			deviceName = itemView.findViewById(R.id.deviceName);
+		}
+
+		public void bind(final BluetoothDevice device, final ClickListener listener) {
+			deviceAddress.setText(device.getAddress());
+			deviceName.setText(device.getName());
 
 			itemView.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(v.getContext(), "Clicked", Toast.LENGTH_SHORT).show();
-
+					listener.onItemClick(device);
 				}
 			});
-			deviceAddress = itemView.findViewById(R.id.deviceAddress);
-			deviceName = itemView.findViewById(R.id.deviceName);
 		}
+
 	}
+
+	public interface ClickListener {
+		void onItemClick(BluetoothDevice device);
+	}
+
 }

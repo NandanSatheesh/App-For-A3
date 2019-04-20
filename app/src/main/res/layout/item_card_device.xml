@@ -39,10 +39,10 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			app:layout_constraintTop_toTopOf="parent"
+			android:textSize="16dp"
 			android:textColor="#3f3f3f"
 			android:textStyle="bold"
 			app:layout_constraintStart_toEndOf="@id/bluetoothLogo"
-			android:textSize="16dp"
 			android:text="string"
 			android:layout_marginLeft="8dp"
 
