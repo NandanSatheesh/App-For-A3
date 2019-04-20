@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Set;
@@ -26,7 +27,7 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.De
 	@Override
 	public DeviceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 		View itemView = LayoutInflater.from(viewGroup.getContext())
-				.inflate(R.layout.list_row, viewGroup, false);
+				.inflate(R.layout.item_card_device, viewGroup, false);
 
 		return new DeviceViewHolder(itemView);
 	}
@@ -52,7 +53,17 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.De
 
 
 		public DeviceViewHolder(@NonNull View itemView) {
+
+
 			super(itemView);
+
+			itemView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Toast.makeText(v.getContext(), "Clicked", Toast.LENGTH_SHORT).show();
+
+				}
+			});
 			deviceAddress = itemView.findViewById(R.id.deviceAddress);
 			deviceName = itemView.findViewById(R.id.deviceName);
 		}

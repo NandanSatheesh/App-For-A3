@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:theme="@style/NoActionBar"
 	android:layout_height="match_parent">
 
+
 	<android.support.v7.widget.Toolbar
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:id="@+id/toolbar"
-		app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:minHeight="?attr/actionBarSize"
@@ -18,12 +18,35 @@
 		android:background="?attr/colorPrimary"
 		app:navigationIcon="?attr/homeAsUpIndicator"
 		app:title="Add Existing Devices"
+		app:titleTextColor="#000000"
+		app:theme="@style/ThemeOverlay.AppCompat.Light"
 		/>
+
+
+	<TextView
+		android:id="@+id/pairedDevicesLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Paired Devices"
+		android:textSize="16dp"
+		android:textColor="#3f3f3f"
+		android:textStyle="bold"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/toolbar"
+		android:layout_marginTop="16dp"
+		android:layout_marginLeft="8dp"
+		android:visibility="visible"
+
+
+		/>
+
+
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/recycler_view"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="?attr/actionBarSize"
+		android:layout_marginTop="8dp"
+		app:layout_constraintTop_toBottomOf="@id/pairedDevicesLabel"
 		android:scrollbars="vertical" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -20,11 +20,6 @@ public class FirstPage extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 
-
-		Intent intent = new Intent(getApplicationContext() , DeviceListRecyclerView.class);
-
-		startActivity(intent);
-
 		userName = (EditText) findViewById(R.id.userNameField);
 		password = (EditText) findViewById(R.id.passwordField);
 		loginAction = findViewById(R.id.loginAction);
